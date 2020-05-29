@@ -1,16 +1,22 @@
 language: java
 
 jdk:
-  - oraclejdk9
+  - oraclejdk11
 
 matrix:
   include:
-    - jdk: oraclejdk9
+    - jdk: oraclejdk11
       before_install:
         - rm "${JAVA_HOME}/lib/security/cacerts"
         - ln -s /etc/ssl/certs/java/cacerts "${JAVA_HOME}/lib/security/cacerts"
+
+addons:
+  sonarcloud:
+    organization: "smalaca-github"
+    token: $TEMPLATE_PROJECT_TOKEN
 
 script:
   - mvn -Pstatic-analysis clean compile
   - mvn -Pruntime-analysis verify
   - mvn -Pmutation-tests verify org.pitest:pitest-maven:mutationCoverage
+  - sonar-scanner
