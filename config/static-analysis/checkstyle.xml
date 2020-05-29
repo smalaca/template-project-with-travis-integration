@@ -35,10 +35,6 @@
         <module name="ClassTypeParameterName"/>
         <module name="ConstantName"/>
         <module name="CovariantEquals"/>
-        <module name="CustomImportOrder">
-            <property name="separateLineBetweenGroups" value="true"/>
-            <property name="sortImportsInGroupAlphabetically" value="true"/>
-        </module>
         <module name="CyclomaticComplexity">
             <property name="max" value="7"/>
         </module>
@@ -60,9 +56,6 @@
         <module name="Indentation"/>
         <module name="InnerAssignment"/>
         <module name="LeftCurly"/>
-        <module name="LineLength">
-            <property name="max" value="150"/>
-        </module>
         <module name="MagicNumber"/>
         <module name="MethodCount">
             <property name="maxTotal" value="20"/>
@@ -119,6 +112,13 @@
         <module name="ParameterName"/>
         <module name="StaticVariableName"/>
         <module name="TypeName"/>
+        <module name="SuppressWarningsHolder"/>
+    </module>
+
+    <module name="SuppressWarningsFilter"/>
+
+    <module name="LineLength">
+        <property name="max" value="150"/>
     </module>
 
     <module name="FileLength">
